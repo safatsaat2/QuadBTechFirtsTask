@@ -1,13 +1,16 @@
 import { Icon } from "@iconify/react";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 const Home = () => {
     // DATA SET
     const [datas, setDatas] = useState([])
     // DATA FETCHING
-    fetch('https://api.tvmaze.com/search/shows?q=all')
+    useEffect(()=>{
+        fetch('https://api.tvmaze.com/search/shows?q=all')
         .then(res => res.json())
         .then(res => setDatas(res))
+    },[])
 
     return (
         <>
@@ -27,7 +30,7 @@ const Home = () => {
                             <p className="pt-2">{data?.show?.premiered ? data?.show?.premiered : "Not Available"}</p>
                         </div>
                     </div>
-                    <button className="btn">Details</button>
+                    <Link to={`/${data.show.name}`}><button className="btn">Details</button></Link>
                 </div>)}
             </div>
         </>
