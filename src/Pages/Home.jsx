@@ -2,28 +2,32 @@ import { Icon } from "@iconify/react";
 
 import { useState } from 'react';
 const Home = () => {
+    // DATA SET
     const [datas, setDatas] = useState([])
-
+    // DATA FETCHING
     fetch('https://api.tvmaze.com/search/shows?q=all')
         .then(res => res.json())
         .then(res => setDatas(res))
 
     return (
         <>
+            {/* HOMEContainer */}
             <div className="homeContainer">
+                {/* Every info will load in card */}
                 {datas.map(data => <div key={data.show.id} className="cardShow">
-                    <img src={data?.show?.image?.medium} alt="" />
+                    <img className="cardImg" src={data?.show?.image?.medium ? data?.show?.image?.medium : "https://i.ibb.co/Xypy0MX/Group-1000003711.png"} alt="" />
                     <div className='cardInfo'>
                         <div>
                             <h3>{data.show.name}</h3>
-                            <p>genres</p>
+                            <p className="pt-2">Language: {data?.show?.language}</p>
                         </div>
-                        <button>See More</button>
-                        <div>
-                            <Icon icon="bx:star" color="#ffe234" /> <span>star</span>
-                            <p>premiered</p>
+
+                        <div >
+                            <Icon icon="bx:star" color="#ffe234" /> <span>{data?.show?.rating?.average ? data?.show?.rating?.average : "Not Available"}</span>
+                            <p className="pt-2">{data?.show?.premiered ? data?.show?.premiered : "Not Available"}</p>
                         </div>
                     </div>
+                    <button className="btn">Details</button>
                 </div>)}
             </div>
         </>
