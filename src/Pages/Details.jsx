@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const Details = () => {
-
+    // MODAL OPEN
     const [open, setOpen] = useState(false)
-    console.log(open)
     const { name } = useParams()
     // DATA SET
     const [datas, setDatas] = useState([])
@@ -21,7 +20,7 @@ const Details = () => {
     const htmlContent = filteredInnerData?.summary
 
     // Form Submit
-    const handleSubmit = event =>{
+    const handleSubmit = event => {
         event.preventDefault()
         const target = event.target
         const name = target.name.value
@@ -41,7 +40,7 @@ const Details = () => {
                 <img className='summaryImg' src={filteredData?.show?.image?.original} alt="" />
                 <h2 className='text-center'>Summary</h2>
                 <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-                <div className='cardInfo'>
+                <div className='cardInfo2'>
                     <p><b>Language: </b>{filteredData?.show?.language}</p>
                     <p><b>Type: </b>{filteredData?.show?.type}</p>
                     <p><b>Premiered: </b>{filteredData?.show?.premiered}</p>
@@ -56,7 +55,7 @@ const Details = () => {
                         <p>Phone</p>
                         <input className='input' type="number" name='phone' />
                         <p>Quantity</p>
-                        <input className='input' type="number"  name='quantity' />
+                        <input className='input' type="number" name='quantity' />
                         <div>
                             <input className='btn' type="submit" value="BOOK NOW" name='address' />
                         </div>
