@@ -60,7 +60,9 @@ const Details = () => {
                             <input className='btn' type="submit" value="BOOK NOW" name='address' />
                         </div>
                     </form>
-                    <button className="btn2" onClick={() => setOpen(!open)}>Close</button>
+                    <div className='d-flex justify-content-center align-items-center'>
+                    <button className="btn" onClick={() => setOpen(!open)}>Close</button>
+                    </div>
                 </div>
             </div>
         </>

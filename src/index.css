@@ -81,6 +81,15 @@
   font-weight: 600;
   margin-left: 45%;
 }
+.btn3{
+  background-color: skyblue !important;
+  border: none;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: 600;
+  margin-left: 45%;
+}
 .cardInfo2{
   display: flex;
   justify-content: space-between;
@@ -115,5 +124,14 @@
     margin-top: 10px;
     font-weight: 600;
     margin-left: 35%;
+  }
+  .btn2{
+    background-color: skyblue !important;
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: 600;
+    margin-left: 40%;
   }
 }
