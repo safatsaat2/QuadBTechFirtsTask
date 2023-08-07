@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { Icon } from "@iconify/react";
+
+// import { useState } from 'react';
 const Home = () => {
-    const [data, setData] = useState([])
+    // const [data, setData] = useState([])
 
     fetch('https://api.tvmaze.com/search/shows?q=all')
         .then(res => res.json())
-        .then(res => setData(res))
+        // .then(res => setData(res))
 
     return (
         <>
