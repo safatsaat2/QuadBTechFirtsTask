@@ -1,0 +1,7 @@
+/* Home CSS */
+
+.homeContainer{
+  max-width: 1280px;
+  margin: auto;
+  display: grid;
+}
