@@ -1,21 +1,21 @@
 import { Icon } from "@iconify/react";
 
-// import { useState } from 'react';
+import { useState } from 'react';
 const Home = () => {
-    // const [data, setData] = useState([])
+    const [datas, setDatas] = useState([])
 
     fetch('https://api.tvmaze.com/search/shows?q=all')
         .then(res => res.json())
-        // .then(res => setData(res))
+        .then(res => setDatas(res))
 
     return (
         <>
             <div className="homeContainer">
-                <div className="cardShow">
-                    <img src="https://static.tvmaze.com/uploads/images/medium_portrait/413/1034988.jpg" alt="" />
+                {datas.map(data => <div key={data.show.id} className="cardShow">
+                    <img src={data?.show?.image?.medium} alt="" />
                     <div className='cardInfo'>
                         <div>
-                            <h3>Name</h3>
+                            <h3>{data.show.name}</h3>
                             <p>genres</p>
                         </div>
                         <button>See More</button>
@@ -24,7 +24,7 @@ const Home = () => {
                             <p>premiered</p>
                         </div>
                     </div>
-                </div>
+                </div>)}
             </div>
         </>
     );
